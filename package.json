@@ -1,6 +1,6 @@
 {
   "name": "vue-awesome-slides",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "dependencies": {
     "vue": "^2.5.17",
     "pug": "^2.0.3",
