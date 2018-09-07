@@ -1,10 +1,16 @@
 <template lang="pug">
   #app
-    Slides(:slides='slides1' :slidesConfig='config1' ref="slide")
-    Slides(:slides='slides2' :slidesConfig='config2')
-      .item(slot="slide" slot-scope="props")
-        img(:src="props.slide.img")
-        .text {{props.slide.text}}
+    .module
+      .module-hd default
+      .module-bd
+        Slides(:slides='slides1' :slidesConfig='config1' ref="slide")
+    .module
+      .module-hd custom with title
+      .module-bd
+        Slides(:slides='slides2' :slidesConfig='config2')
+          .item(slot="slide" slot-scope="props")
+            img(:src="props.slide.img")
+            .text {{props.slide.text}}
 </template>
 
 <script>
@@ -16,13 +22,13 @@ export default {
       config1: {
         width: 234,
         height: 126,
-        autoPlay: false,
+        autoPlay: true,
         infinite: true,
         pager: true,
         controls: true,
         speed: 500,
         loopTime: 3000,
-        mode: 'hide'
+        mode: 'horizontal'
       },
       config2: {
         width: 234,
@@ -60,6 +66,12 @@ export default {
 
 <style>
  body{
+   width: 234px;
+ }
+ .module{
+   margin-bottom: 40px;
+ }
+ .module-bd{
    width: 234px;
  }
 .item{

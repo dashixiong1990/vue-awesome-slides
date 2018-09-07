@@ -21,10 +21,10 @@ export default {
       const modeMap = {
         'horizontal': 'X',
         'vertical': 'Y',
-        'hide': 'X'
+        'fade': 'X'
       }
       let styleObj
-      if (mode === 'hide') {
+      if (mode === 'fade') {
         styleObj = {
           opacity: this.opacity,
           transition: `opacity ${this.$parent.config.speed}ms`
@@ -60,7 +60,7 @@ export default {
     },
     reachBehindScene () {
       const { mode } = this.$parent.config
-      if (mode === 'hide') {
+      if (mode === 'fade') {
         return
       }
       const multiplier = this.$parent.slideDirection === 'clockwise' ? 1 : -1
@@ -72,7 +72,7 @@ export default {
       this.transformWithAnimate = true
       this.isOnStage = true
 
-      if (mode === 'hide') {
+      if (mode === 'fade') {
         this.opacity = 1
       } else {
         this.transform(0)
@@ -83,7 +83,7 @@ export default {
       this.transformWithAnimate = true
       this.isOnStage = false
 
-      if (mode === 'hide') {
+      if (mode === 'fade') {
         this.opacity = 0
       } else {
         const multiplier = this.$parent.slideDirection === 'clockwise' ? -1 : 1

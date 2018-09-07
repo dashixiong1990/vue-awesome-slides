@@ -175,10 +175,10 @@ export default {
         this.autoPlay();
       }
     },
-    prev() {
+    goToPrevSlide() {
       this.handleControl("anticlockwise");
     },
-    next() {
+    goToNextSlide() {
       this.handleControl("clockwise");
     },
     goToSlide(index) {
@@ -203,10 +203,10 @@ export default {
 .slides-wrapper.horizontal .slide-item {
   transform: translateX(100%);
 }
-.slides-wrapper.hide .slide-item {
+.slides-wrapper.fade .slide-item {
   opacity: 0;
 }
-.slides-wrapper.hide .on-stage {
+.slides-wrapper.fade .on-stage {
   opacity: 1;
 }
 .slides-wrapper.horizontal .on-stage {
@@ -231,10 +231,18 @@ export default {
   margin-top: -30px;
 }
 .slides-wrapper .slides-pager .slides-pager-item {
-  width: 15px;
-  height: 15px;
-  border-radius: 15px;
-  background: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+  background: rgba(256, 256, 256, 0.5);
+}
+.slides-pager-item + .slides-pager-item{
+  margin-left: 10px;
+}
+.slides-wrapper .slides-pager .slides-pager-item.active,
+.slides-wrapper .slides-pager .slides-pager-item:hover{
+  background: rgba(256, 256, 256, 0.8);
 }
 .slides-wrapper .slides-controls-item {
   position: absolute;
